@@ -1,10 +1,33 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>GeoTraks</title>
-<meta charset="UTF-8">
-</head>
+  <head>
+    <title>GeoTraks</title>
+    <meta charset="UTF-8">
+  </head>
+  
 <body>
-<h1>GeoTraks</h1>
+
+<script>
+$.ajax({
+type: 'GET',
+beforeSend: function(request) {
+request.setRequestHeader('X-Appery-Database-Id', '52*********');
+},
+url: 'https://api.appery.io/rest/1/db/colle...',
+data: {"question":"name2"},
+dataType: "json",
+contentType:'JSON',
+
+success: function(response) {
+console.log("Successfully loaded");
+},
+error: function(xhr, ajaxOptions, thrownError) {
+console.log("Load error: " + xhr.status + " " + xhr.responseText);
+}
+}); 
+</script>
+
 </body>
+
+  
 </html>
